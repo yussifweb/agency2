@@ -178,7 +178,7 @@ if( !$_SESSION['email'] ){
               $msg_class = "alert-danger";
             }
 
-            if( $width != 720 || $height != 720 ) { 
+            if( $width > 720 || $height > 720 ) { 
                 $error = 'w & h';              
                 $msg = "Image width and height should be 720 Pixels";
                 $msg_class = "alert-danger"; 

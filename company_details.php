@@ -38,16 +38,7 @@ if( !$_SESSION['email'] ){
         <!-- main content -->
         <div class="container">
         <div class="row">
-            <div class="col-12 col-sm-3">
-                <div class="card">
-                    <div class="card-header">Companies</div>
-                    <ul class="list-group">
-                        <li class="list-group-item"><a href="company.php">Add New Company</a></li>
-                        <li class="list-group-item"><a href="companies.php">View all companies</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-12 col-sm-9">
+            <div class="col-12 col-sm-10 offset-sm-1">
                 <div class="card">
                     <div class="card-header">Company</div>
                     <?php 
@@ -85,7 +76,7 @@ if( !$_SESSION['email'] ){
 
                     </div>
                     <div class="card-footer">
-                    <a href="company_edit.php?id=<?php echo $company['id']; ?>" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="company_edit.php?id=<?php echo $company['id']; ?>" class="btn btn-sm btn-primary">Update</a>
                     <a href="company_delete.php?id=<?php echo $company['id']; ?>" class="btn btn-sm btn-danger">Delete</a>
                     </div>
                         <?php    }

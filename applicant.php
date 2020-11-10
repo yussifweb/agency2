@@ -494,9 +494,9 @@ if( !$_SESSION['email'] ){
             $statusRadios = $_POST['statusRadios'];
             $company = $_POST['company'];
             $user_id = $user_id;
-            // Get image name
+   // Get image name
             // imgage preview upload
-            // $image = $_FILES['image']['name'];
+            $image = $_FILES['image']['name'];
             // For image upload
             $target = "applicants/".basename($image);
             // VALIDATION
@@ -516,7 +516,7 @@ if( !$_SESSION['email'] ){
             //   return false;
             }
             
-            if($width != 720 || $height != 720) { 
+            if($width > 720 || $height > 720) { 
                 $error = 'w & h';              
                 $msg = "Image width and height should 720 Pixels";
                 $msg_class = "alert-danger";
@@ -537,12 +537,10 @@ if( !$_SESSION['email'] ){
               $msg = "File already exists";
               $msg_class = "alert-danger";
             }    
-          };
+          }
 
         if (empty($error)) {
-                if(move_uploaded_file($_FILES["id_image"]["tmp_name"], "applicants/ids/" .$id_target) && move_uploaded_file($_FILES["image"]["tmp_name"], "applicants/" .$target)){ 
-                  $id_image = $id_target;
-                  $image = $target;           
+                if( move_uploaded_file($_FILES["image"]["tmp_name"], $target)){            
                     $sql = "INSERT INTO applicants (f_name, l_name, dob,  age, email, phone, country, dialect, id_typeRadios, id_image, genderRadios, mar_statRadios, spouse, religion, residence, box_addr, landmark, street_nm, suburb, hse_no, city_town, area_of_int_1, area_of_int_2, area_of_int_3, area_of_int_4, jhs_nm, jhs_awd, jhs_start, jhs_end, shs_nm, shs_course, shs_start, shs_end, tet_nm, tet_course, tet_start, tet_end, prev_wkplc, prev_wkplc_addr, prev_wkplc_cont, position, prev_wkplc_start, prev_wkplc_end, reason, ref_nm, ref_cont, paymentRadios, statusRadios, job_title, company, user_id, image) 
                     VALUES ('$f_name', '$l_name', '$dob', '$age', '$email', '$phone', '$country', '$dialect', '$id_typeRadios', '$id_image', '$genderRadios', '$mar_statRadios', '$spouse', '$religion', '$residence', '$box_addr', '$landmark', '$street_nm', '$suburb', '$hse_no', '$city_town', '$area_of_int_1', '$area_of_int_2', '$area_of_int_3', '$area_of_int_4', '$jhs_nm', '$jhs_awd', '$jhs_start', '$jhs_end', '$shs_nm', '$shs_course', '$shs_start', '$shs_end', '$tet_nm', '$tet_course', '$tet_start', '$tet_end', '$prev_wkplc', '$prev_wkplc_addr', '$prev_wkplc_cont', '$position', '$prev_wkplc_start', '$prev_wkplc_end', '$reason', '$ref_nm', '$ref_cont', '$paymentRadios', '$statusRadios', '$job_title', '$company', '$user_id', '$image')";
                     if(mysqli_query($connect, $sql)){

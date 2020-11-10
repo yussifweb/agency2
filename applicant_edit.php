@@ -545,8 +545,8 @@ if( !$_SESSION['email'] ){
             $result = mysqli_query($connect, $sql);
 
             if (mysqli_num_rows($result) > 0) {
-            while($company = mysqli_fetch_assoc($result)) {
-            unlink($tmp_dir.$company['image']); // delete old image from database
+            while($applicant = mysqli_fetch_assoc($result)) {
+            unlink($tmp_dir.$applicant['image']); // delete old image from database
             }}                
             move_uploaded_file($_FILES['image']['tmp_name'], $target);    
         }

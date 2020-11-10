@@ -80,6 +80,8 @@ if( !$_SESSION['email'] ){
 $sql = "SELECT * FROM applicants WHERE statusRadios='Posted'";
 $result = mysqli_query( $connect, $sql );
 ?>
+
+
 <table class="table table-striped">
 <thead class="thead-dark">
 <tr>
@@ -105,14 +107,15 @@ while ($applicant = mysqli_fetch_assoc($result)) {
   <td><?php echo $applicant['company']; ?></td>
 </tr>
 </tbody>
+};
 
 
 <?php
   }
 } else {
-  echo '0 Results';
-}
+  echo '0 Results'; }
 ?>
+
 </table>
 </div>
 

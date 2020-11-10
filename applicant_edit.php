@@ -56,6 +56,7 @@ if( !$_SESSION['email'] ){
             while($applicant = mysqli_fetch_assoc($result)) { ?>
 
         <form id="survey-form" action="" method="POST" enctype="multipart/form-data">
+        <div class="h3">PERSONAL INFORMATION </div>
             <div class="form-row">
              <div class="md-form col-12 col-sm-6">
                 <input type="text" id="f_name" class="form-control" name="f_name" value="<?php echo $applicant['f_name']; ?>" required>
@@ -98,6 +99,7 @@ if( !$_SESSION['email'] ){
 
             <div class="form-row">
             <div class="col-12 col-sm-8">
+            <div class="mt-4">
             <!-- Default inline 1-->
             <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" class="custom-control-input" id="defaultInline1" name="id_typeRadios" value="Passport" <?php if($applicant['id_typeRadios']=="Passport"){ echo "checked";}?>>
@@ -117,6 +119,7 @@ if( !$_SESSION['email'] ){
             <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" class="custom-control-input" id="defaultInline4" name="id_typeRadios" value="National ID" <?php if($applicant['id_typeRadios']=="National ID"){ echo "checked";}?>>
                 <label class="custom-control-label" for="defaultInline4">National ID</label>
+            </div>
             </div>
             </div>
 
@@ -172,7 +175,8 @@ if( !$_SESSION['email'] ){
                    <input type="text" id="religion" class="form-control" name="religion" placeholder="Religion" value="<?php echo $applicant['religion']; ?>" required>
                  </div>
                </div>
-   
+
+               <div class="h3">LOCATION DETAILS</div>
                <div class="form-row">
                 <div class="md-form col-12 col-sm-6">
                    <input type="text" id="residence" class="form-control" name="residence" placeholder="Residence"  value="<?php echo $applicant['residence']; ?>" required>
@@ -203,10 +207,10 @@ if( !$_SESSION['email'] ){
                  </div>
                  <div class="md-form col-12 col-sm-4">
                     <input type="text" id="city_town" class="form-control" name="city_town" placeholder="City/Town" value="<?php echo $applicant['city_town']; ?>" required>
-                  </div>
- 
+                  </div> 
                </div>
 
+              <div class="h3 mt-5">AREA OF INTEREST(S) </div>
                <div class="form-row">
                 <div class="md-form col-12 col-sm-6">
                    <input type="text" id="area_of_int_1" class="form-control" name="area_of_int_1" placeholder="Area of Interest 1" value="<?php echo $applicant['area_of_int_1']; ?>" required>
@@ -227,6 +231,8 @@ if( !$_SESSION['email'] ){
                  </div>
                </div>
 
+               <div class="h3">EDUCATIONAL BACKGROUND</div>
+              <div class="h5 mt-2">A. JUNIOR HIGH SCHOOL</div>
                <div class="form-row">
                 <div class="md-form col-12 col-sm-6">
                    <input type="text" id="jhs_nm" class="form-control" name="jhs_nm" placeholder="Name of Junior High School" value="<?php echo $applicant['jhs_nm']; ?>" required>
@@ -249,6 +255,7 @@ if( !$_SESSION['email'] ){
                  </div>
                </div>
 
+              <div class="h5 mt-4">B.	SECONDARY  EDUCATION </div>
                <div class="form-row">
                 <div class="md-form col-12 col-sm-6">
                    <input type="text" id="shs_nm" class="form-control" name="shs_nm" placeholder="Name of Senior High School" value="<?php echo $applicant['shs_nm']; ?>" required>
@@ -271,6 +278,7 @@ if( !$_SESSION['email'] ){
                  </div>
                </div>
 
+              <div class="h5 mt-4">C.	TERTIARY EDUCATION</div>
                <div class="form-row">
                 <div class="md-form col-12 col-sm-6">
                    <input type="text" id="tet_nm" class="form-control" name="tet_nm" placeholder="Name of Tetiary" value="<?php echo $applicant['tet_nm']; ?>" required>
@@ -293,6 +301,7 @@ if( !$_SESSION['email'] ){
                  </div>
                </div>
 
+               <div class="h3 mt-5">LAST  WORKING PLACE</div>
                <div class="form-row">
                 <div class="md-form col-12 col-sm-6">
                    <input type="text" id="prev_wkplc" class="form-control" name="prev_wkplc" placeholder="Previous Workplace" value="<?php echo $applicant['prev_wkplc']; ?>">
@@ -345,6 +354,7 @@ if( !$_SESSION['email'] ){
 
                <div class="form-row">
                 <div class="col-12 col-sm-6">
+                <div class="h5">PAYMENT</div>
                 <!-- Default inline 1-->
                 <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" class="custom-control-input" id="paymentInline1" name="paymentRadios" value="Paid" <?php if($applicant['paymentRadios']=="Paid"){ echo "checked";}?> required>
@@ -358,6 +368,7 @@ if( !$_SESSION['email'] ){
                 </div>
 
                 <div class="col-12 col-sm-6">
+                <div class="h5">JOB STATUS</div>
                     <!-- Default inline 1-->
                     <div class="custom-control custom-radio custom-control-inline">
                         <input type="radio" class="custom-control-input" id="statusInline1" name="statusRadios" value="Posted" <?php if($applicant['statusRadios']=="Posted"){ echo "checked";}?> required>

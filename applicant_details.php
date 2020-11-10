@@ -30,12 +30,43 @@ if( !$_SESSION['email'] ){
 
          if (mysqli_num_rows($result) > 0) {
           while($applicant = mysqli_fetch_assoc($result)) { ?>
-    <title>Jobcenter | <?php echo $applicant['name']; ?></title>
+    <title>Jobcenter | <?php echo $applicant['f_name']; ?></title>
     <?php } }?>
 
   </head>
   <body>
   <?php require 'nav.php'; ?>
+
+        <!-- Modal -->
+        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+               <p><strong>Are you sure you want to delete this applicant?</strong></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <?php 
+                        
+                        $id = $_GET['id'];
+                         $sql = "SELECT * FROM applicants WHERE id='$id'";
+                        $result = mysqli_query($connect, $sql);
+                
+                         if (mysqli_num_rows($result) > 0) {
+                          while($applicant = mysqli_fetch_assoc($result)) { ?>
+                    <a href="applicant_delete.php?id=<?php echo $applicant['id']; ?>" class="btn btn-danger">Delete</a>
+                    <?php } }?>
+            </div>
+            </div>
+        </div>
+        </div>
+
         <!-- main content -->
         <div class="container">
         <div class="row">
@@ -53,6 +84,8 @@ if( !$_SESSION['email'] ){
                         <img class="details" src="applicants/<?php echo $applicant['image']; ?>" alt="<?php echo $applicant['f_name']; ?>">
 
                     <div class="card-body ml-3">
+                        <div class="h4 mt-4">PERSONAL INFORMATION</div>
+                        <hr/>
                         <div class="row">
                             <div class="col-12 col-sm-6">
                             <p class=""><strong>First Name: </strong> <?php echo $applicant['f_name']; ?>
@@ -83,7 +116,9 @@ if( !$_SESSION['email'] ){
                             <span class="mr-3"></span><strong>Marital Status: </strong><?php echo $applicant['mar_statRadios']; ?></p>
                             </div>    
                         </div>
-
+                        
+                        <div class="h4 mt-4">LOCATION DETAILS</div>
+                        <hr/>
                         <div class="row">
                             <div class="col-12 col-sm-6">
                             <p class=""><strong>Spouse: </strong> <?php echo $applicant['spouse']; ?>
@@ -112,7 +147,9 @@ if( !$_SESSION['email'] ){
                         
                         </div>
                         </div>
-
+                        
+                        <div class="h4 mt-4">AREA OF INTEREST</div>
+                        <hr/>
                         <div class="row">
                             <div class="col-12 col-sm-6">
                             <p class=""><strong>Area of Interest 1: </strong> <?php echo $applicant['area_of_int_1']; ?></p>
@@ -121,7 +158,19 @@ if( !$_SESSION['email'] ){
                             <p class=""><strong>Area of Interest 2: </strong> <?php echo $applicant['area_of_int_2']; ?></p>
                             </div>    
                         </div>
+                        <div class="row">
+                            <div class="col-12 col-sm-6">
+                            <p class=""><strong>Area of Interest 3: </strong> <?php echo $applicant['area_of_int_3']; ?></p>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                            <p class=""><strong>Area of Interest 4: </strong> <?php echo $applicant['area_of_int_4']; ?></p>
+                            </div>    
+                        </div>
 
+                        <div class="h3 mt-4">EDUCATIONAL BACKGROUND</div>
+                        <hr/>
+                        <div class="h5 mb-2">A. JUNIOR HIGH SCHOOL</div>
+                        <hr/>
                         <div class="row">
                             <div class="col-12 col-sm-6">
                             <p class=""><strong>Name of JHS: </strong> <?php echo $applicant['jhs_nm']; ?></p>
@@ -138,7 +187,9 @@ if( !$_SESSION['email'] ){
                             <p class=""><strong>Year of Completion: </strong> <?php echo $applicant['jhs_end']; ?></p>
                             </div>    
                         </div>
-
+                        
+                        <div class="h5 mb-2">B.	SECONDARY  EDUCATION</div>
+                        <hr/>
                         <div class="row">
                             <div class="col-12 col-sm-6">
                             <p class=""><strong>Name of SHS: </strong> <?php echo $applicant['shs_nm']; ?></p>
@@ -155,7 +206,9 @@ if( !$_SESSION['email'] ){
                             <p class=""><strong>Year of Completion: </strong> <?php echo $applicant['shs_end']; ?></p>
                             </div>    
                         </div>
-
+                        
+                        <div class="h5 mb-2">C.	TERTIARY EDUCATION</div>
+                        <hr/>
                         <div class="row">
                             <div class="col-12 col-sm-6">
                             <p class=""><strong>Name of Tetiary Institution: </strong> <?php echo $applicant['tet_nm']; ?></p>
@@ -172,7 +225,9 @@ if( !$_SESSION['email'] ){
                             <p class=""><strong>Year of Completion: </strong> <?php echo $applicant['tet_end']; ?></p>
                             </div>    
                         </div>
-
+                        
+                        <div class="h4 mt-2">LAST  WORKING PLACE</div>
+                        <hr/>
                         <div class="row">
                             <div class="col-12 col-sm-6">
                             <p class=""><strong>Previous Workplace: </strong> <?php echo $applicant['prev_wkplc']; ?></p>
@@ -241,8 +296,8 @@ if( !$_SESSION['email'] ){
                     </div>
                     <div class="card-footer">
                     <a href="applicant_edit.php?id=<?php echo $applicant['id']; ?>" class="btn btn-sm btn-primary">Update</a>
-                    <a href="applicant_delete.php?id=<?php echo $applicant['id']; ?>" class="btn btn-sm btn-danger">Delete</a>
-                    </div>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-sm btn-danger" data-href="<?php echo $applicant['id']; ?>" data-toggle="modal" data-target="#deleteModal">Delete</button>                    </div>
                         <?php    }
                         } else {
                             echo "0 results";
@@ -253,6 +308,7 @@ if( !$_SESSION['email'] ){
             </div>
         </div>
     </div>
+
     <!-- main content -->
 
     <?php require 'footer.php'; ?>
@@ -261,6 +317,6 @@ if( !$_SESSION['email'] ){
     <script src="./js/font-awesome.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="./js/jquery-3.3.1.slim.min.js"></script>
-    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

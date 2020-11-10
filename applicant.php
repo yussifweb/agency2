@@ -38,6 +38,7 @@ if( !$_SESSION['email'] ){
         <div class="card-body">
 
         <form id="survey-form" action="" method="POST" enctype="multipart/form-data">
+        <div class="h3">PERSONAL INFORMATION</div>
             <div class="form-row">
              <div class="md-form col-12 col-sm-6">
                 <input type="text" id="f_name" class="form-control" name="f_name" placeholder="First Name" required>
@@ -80,6 +81,7 @@ if( !$_SESSION['email'] ){
 
             <div class="form-row">
             <div class="col-12 col-sm-8">
+            <div class="mt-4">
             <!-- Default inline 1-->
             <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" class="custom-control-input" id="defaultInline1" name="id_typeRadios" value="Passport">
@@ -101,11 +103,13 @@ if( !$_SESSION['email'] ){
                 <label class="custom-control-label" for="defaultInline4">National ID</label>
             </div>
             </div>
+            </div>
 
             <div class="col-12 col-sm-4">
             <div class="md-form">
-                   <input type="text" id="id_relogion" class="form-control" name="id_image" placeholder="ID Number" required>
+                   <input type="text" id="id_image" class="form-control" name="id_image" placeholder="ID Number" required>
                  </div>
+            </div>
             </div>
 
             <div class="form-row">
@@ -157,6 +161,7 @@ if( !$_SESSION['email'] ){
                  </div>
                </div>
    
+              <div class="h3">LOCATION DETAILS</div>
                <div class="form-row">
                 <div class="md-form col-12 col-sm-6">
                    <input type="text" id="residence" class="form-control" name="residence" placeholder="Residence" required>
@@ -187,10 +192,10 @@ if( !$_SESSION['email'] ){
                  </div>
                  <div class="md-form col-12 col-sm-4">
                     <input type="text" id="city_town" class="form-control" name="city_town" placeholder="City/Town" required>
-                  </div>
- 
+                  </div> 
                </div>
 
+              <div class="h3">AREA OF INTEREST(S)</div>
                <div class="form-row">
                 <div class="md-form col-12 col-sm-6">
                    <input type="text" id="area_of_int_1" class="form-control" name="area_of_int_1" placeholder="Area of Interest 1" required>
@@ -210,6 +215,10 @@ if( !$_SESSION['email'] ){
                    <input type="text" id="area_of_int_4" class="form-control" name="area_of_int_4" placeholder="Area of Interest 4">
                  </div>
                </div>
+
+
+               <div class="h3">EDUCATIONAL BACKGROUND</div>
+              <div class="h5 mt-2">A. JUNIOR HIGH SCHOOL</div>
 
                <div class="form-row">
                 <div class="md-form col-12 col-sm-6">
@@ -233,6 +242,7 @@ if( !$_SESSION['email'] ){
                  </div>
                </div>
 
+              <div class="h5 mt-5">B. SECONDARY  EDUCATION </div>
                <div class="form-row">
                 <div class="md-form col-12 col-sm-6">
                    <input type="text" id="shs_nm" class="form-control" name="shs_nm" placeholder="Name of Senior High School" required>
@@ -255,6 +265,7 @@ if( !$_SESSION['email'] ){
                  </div>
                </div>
 
+              <div class="h5 mt-5">C. TERTIARY EDUCATION</div>
                <div class="form-row">
                 <div class="md-form col-12 col-sm-6">
                    <input type="text" id="tet_nm" class="form-control" name="tet_nm" placeholder="Name of Tetiary " required>
@@ -277,8 +288,7 @@ if( !$_SESSION['email'] ){
                  </div>
                </div>
 
-
-
+              <div class="h3 mt-5">LAST  WORKING PLACE</div>
                <div class="form-row">
                 <div class="md-form col-12 col-sm-6">
                    <input type="text" id="prev_wkplc" class="form-control" name="prev_wkplc" placeholder="Previous Workplace">
@@ -332,6 +342,7 @@ if( !$_SESSION['email'] ){
                <div class="form-row">
                 <div class="col-12 col-sm-6">
                 <!-- Default inline 1-->
+                <div class="h5">PAYMENT</div>
                 <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" class="custom-control-input" id="paymentInline1" name="paymentRadios" value="Paid">
                     <label class="custom-control-label" for="paymentInline1">Paid</label>
@@ -345,6 +356,7 @@ if( !$_SESSION['email'] ){
 
                 <div class="col-12 col-sm-6">
                     <!-- Default inline 1-->
+                    <div class="h5">JOB STATUS</div>
                     <div class="custom-control custom-radio custom-control-inline">
                         <input type="radio" class="custom-control-input" id="statusInline1" name="statusRadios" value="Posted">
                         <label class="custom-control-label" for="statusInline1">Posted</label>

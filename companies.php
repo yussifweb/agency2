@@ -51,7 +51,8 @@ if (mysqli_num_rows($result) > 0) {
   <div class="card-footer">
     <span><a href="company_details.php?id=<?php echo $company['id']; ?>" class="btn btn-primary btn-sm">Details</a></span>
     <span><a href="company_edit.php?id=<?php echo $company['id']; ?>" class="btn btn-info btn-sm">Update</a></span>
-    <span><a href="company_delete.php?id=<?php echo $company['id']; ?>" class="btn btn-danger btn-sm">Delete</a></span>    
+      <!-- Button trigger modal -->
+      <span><a href="company_delete.php?id=<?php echo $company['id']; ?>" class="btn btn-danger">Delete</a></span>
   </div>
   </div>
   </div>

@@ -56,7 +56,7 @@ if( !$_SESSION['email'] ){
   <tbody>
     <tr>
       <th scope="row"><?php echo $applicant['id']; ?></th>
-      <td><?php echo $applicant['name']; ?></td>
+      <td><?php echo $applicant['f_name'].' '. $applicant['l_name']; ?></td>
       <td><?php echo $applicant['phone']; ?></td>
       <td><?php echo $applicant['statusRadios']; ?></td>
       <td><?php echo $applicant['company']; ?></td>
@@ -99,7 +99,7 @@ while ($applicant = mysqli_fetch_assoc($result)) {
 <tbody>
 <tr>
   <th scope="row"><?php echo $applicant['id']; ?></th>
-  <td><?php echo $applicant['name']; ?></td>
+  <td><?php echo $applicant['f_name'].' '. $applicant['l_name']; ?></td>
   <td><?php echo $applicant['phone']; ?></td>
   <td><?php echo $applicant['statusRadios']; ?></td>
   <td><?php echo $applicant['company']; ?></td>
